@@ -59,7 +59,7 @@
 
 3. 浏览器打开http://175.11.22.4:7000
 
-   ![image-20250726101926383](/Users/guozhicong/Library/Application Support/typora-user-images/image-20250726101926383.png)
+   ![image-20250726101926383](../png/image-20250726101926383.png)
 
 4. 
 

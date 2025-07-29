@@ -293,7 +293,7 @@ please open http://127.0.0.1:8680
 
 版本选择和集群名称可根据需要配置
 
-![image-20250728093910963](/Users/guozhicong/Library/Application Support/typora-user-images/image-20250728093910963.png)
+![image-20250728093910963](../png/image-20250728093910963.png)
 
 ### MetaDB配置
 
@@ -305,9 +305,9 @@ please open http://127.0.0.1:8680
 > 2. OCP 节点配置和数据库节点配置使用电口ip，OBProxy请使用光口ip。若OBProxy使用电口ip，业务会使用电口进行数据传输，影响数据库性能。
 > 3. 数据路径和安装路径等均使用/home目录，因为默认使用的根目录磁盘空间不足（df -h命令查询），影响数据库集群内存分配。
 
-![image-20250728094401375](/Users/guozhicong/Library/Application Support/typora-user-images/image-20250728094401375.png)
+![image-20250728094401375](../png/image-20250728094401375.png)
 
-![image-20250728094505756](/Users/guozhicong/Library/Application Support/typora-user-images/image-20250728094505756.png)
+![image-20250728094505756](../png/image-20250728094505756.png)
 
 ### OCP配置
 
@@ -317,7 +317,7 @@ please open http://127.0.0.1:8680
 >
 > 软件路径和日志路径等均使用/home目录，因为默认使用的根目录磁盘空间不足（df -h命令查询），影响数据库集群内存分配。
 
-![image-20250728095204080](/Users/guozhicong/Library/Application Support/typora-user-images/image-20250728095204080.png)
+![image-20250728095204080](../png/image-20250728095204080.png)
 
 ### 预检查
 
@@ -429,7 +429,7 @@ ocp_monitor
 
 对OceanBase数据库集群进行监控和管理
 
-![image-20250728152245511](/Users/guozhicong/Library/Application Support/typora-user-images/image-20250728152245511.png)
+![image-20250728152245511](../png/image-20250728152245511.png)
 
 ### FAQ
 
