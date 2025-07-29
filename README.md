@@ -11,9 +11,9 @@ Adaptation and optimization of ARM servers, databases and big data.
 
 ## NUMA
 
-[查询numamiss情况：numastat_diff.sh # 直接bash ./numastat_diff.sh](./utils/numastat_diff.sh)
+[查询numamiss情况：numastat_diff.sh # 直接bash ./numastat_diff.sh](./附件/numastat_diff.sh)
 
-[检查bios是否为默认配置：bios_diff.sh # 执行bash ./bios_diff.sh 920](./utils/bios_diff.sh)
+[检查bios是否为默认配置：bios_diff.sh # 执行bash ./bios_diff.sh 920](./附件/bios_diff.sh)
 
 ## 工具
 

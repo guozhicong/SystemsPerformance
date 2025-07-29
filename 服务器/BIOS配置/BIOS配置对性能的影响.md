@@ -181,3 +181,19 @@ BIOSTools -A DemtMode -V Disabled
 
 
 
+
+
+
+
+```shell
+# 使用当前目录下的BIOSTools-Kunpeng-5.1.aarch64.rpm (需要root权限)
+rpm -ivh BIOSTools-Kunpeng-5.1.aarch64.rpm
+
+# 查询配置
+BIOSTools -D getbiosdetails -A CPUPrefetchConfig
+BIOSTools -D getbiosdetails -A DdrRefreshRate
+BIOSTools -D getbiosdetails -A CustomPowerPolicy
+BIOSTools -D getbiosdetails -A NUMAEn
+
+```
+
