@@ -167,6 +167,29 @@ BIOSTools -A DemtMode -V Disabled
 ```
 ---
 
+## CacheMode
+
+### 目的
+
+> [!IMPORTANT]
+>
+> 久同反馈可以在4p 920设备上使用，没有限制说只有数据库场景可以使用，只要4p服务器都可以使用。
+
+
+
+### 方法
+
+#### 	方法一
+
+```shell
+BIOSTools -D getbiosdetails -A CacheMode
+BIOSTools -A CacheMode -V "in:private out:private"
+```
+
+
+
+
+
 ## 模版
 
 ### 目的

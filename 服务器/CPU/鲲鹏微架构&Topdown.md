@@ -53,7 +53,9 @@ flowchart LR
 
 ## 超标量乱序微架构主要流水阶段
 
-发射数（微架构IPC理论上限）：由各个流水线阶段中最窄的部分决定。（e.g., Decode解码阶段为6IPC，那么其它无论IPC多高，发射数都不会高于6IPC）
+- 发射数（微架构IPC理论上限）：由各个流水线阶段中最窄的部分决定。（e.g., Decode解码阶段为6IPC，那么其它无论IPC多高，发射数都不会高于6IPC）
+
+- 流水线前端是：Fetch和Decode两个部分； 流水线后端是Allocation到commmit的部分。
 
 <img src="../../png/image-20250323161236232.png" alt="image-20250323161236232" style="zoom:50%;" />
 

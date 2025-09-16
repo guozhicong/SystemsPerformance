@@ -62,6 +62,15 @@ OceanBase 数据库支持无共享（Shared-Nothing，SN）模式和共享存储
 
 ```shell
 sysbench oltp_point_select.lua --mysql-host=175.11.22.4 --mysql-port=2881 --mysql-db=sysbench --mysql-user=root@sysbench --mysql-password='mq0+fydH{J3cq]qzOhG' --table_size=2000000 --tables=100 --threads=50 --report-interval=10 --time=60 cleanup
+
+
+sysbench oltp_point_select.lua --mysql-host=175.11.22.4 --mysql-port=2883 --mysql-db=sysbench --mysql-user=root@sysbench#sysbench --mysql-password='UH){_A:S[JBAKf{LL[HxVJf+GCA&T' --table_size=2000000 --tables=100 --threads=50 --report-interval=10 --time=60 cleanup
+
+sysbench oltp_point_select.lua --mysql-host=175.11.22.4 --mysql-port=2883 --mysql-db=sysbench --mysql-user=root@sysbench#sysbench --mysql-password='UH){_A:S[JBAKf{LL[HxVJf+GCA&T' --table_size=2000000 --tables=100 --threads=5 --report-interval=10 --time=60 prepare
+
+sysbench oltp_point_select.lua --mysql-host=175.11.22.4 --mysql-port=2883 --mysql-db=sysbench --mysql-user=root@sysbench#sysbench --mysql-password='UH){_A:S[JBAKf{LL[HxVJf+GCA&T' --table_size=2000000 --tables=100 --threads=50 --report-interval=10 --time=60 --db-ps-mode=disable run
+
+mysql -h175.11.22.4 -P2883 -uroot@sysbench#sysbench -p
 ```
 
 #### prepare 生产数据库测试数据
@@ -121,7 +130,7 @@ sysbench oltp_point_select.lua --mysql-host=195.11.22.4 --mysql-port=2881 --mysq
 2. 数据库层面无配置问题，转而排查硬件层面是否存在瓶颈点。分别排查CPU、磁盘IO、网络IO问题（参考下面列出的命令），我们发现CPU整机负载较低，未到70%的使用率；磁盘IO基本没有；主要是网络IO达到117257.40KB/s，接近网络带宽（GE网口）。此处基本能确认性能问题主要是因为网络瓶颈导致的。
    - CPU： top
    - 磁盘IO： iostat -xm 1 10
-   - 网络IO：  sar -n DEV 1 10
+   - 网络IO： sar -n DEV 1 10
 
 3. 排查测试环境和现网环境的网卡均为TM210和TM280 网卡，但是数据库业务口测试环境配置在TM210的电口，现网环境配置在TM280光口。传输速率和传输带宽存在明显差异，且一般业务口配置在光口上，因此重新修改数据库业务口配置，使其放在光口上，重新测试后性能正常。
 
@@ -341,7 +350,7 @@ please open http://127.0.0.1:8680
 
 ### 启动部署
 
-![image-20250421172713651](../png/image-20250421172713651.png)
+![image-20250801161233365](/Users/guozhicong/Library/Application Support/typora-user-images/image-20250801161233365.png)
 
 部署成功后，保存OceanBase数据库集群信息
 
@@ -351,16 +360,16 @@ please open http://127.0.0.1:8680
 
 ```shell
 sys@root密码
-1sVMipByr)Pk*^7aF
+Z5(Y3!^@j0L!%0H1~.q
 
 ocp admin
-HX{h0Sq8VL61nJLh
+fkRCBs28
 
 ocp_meta
-]8wT-8|z#@^KU67E
+/[pKQ0N)2C
 
 ocp_monitor
-^W4j|^i{G=w2I]}D{SI!fK+J
+/Ns@Mg!+n&O4UC4
 
 {
     "url": [
