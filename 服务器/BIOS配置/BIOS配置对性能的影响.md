@@ -173,9 +173,21 @@ BIOSTools -A DemtMode -V Disabled
 
 > [!IMPORTANT]
 >
-> 久同反馈可以在4p 920设备上使用，没有限制说只有数据库场景可以使用，只要4p服务器都可以使用。
+> 1. 在4p 920设备上使用in:private out:private性能更好，没有限制说只有数据库场景可以使用，只要4p服务器都可以使用。
+>
+> 2. 2p 920使用默认的in:partition out:share即可
+> 3. 920新型号也是一样
 
 
+
+### Cache Mode详解
+
+**Cache Mode**是鲲鹏920服务器BIOS中的一个重要配置项，它涉及到CPU缓存的配置和管理。根据搜索结果，Cache Mode提供了多种缓存模式的选择，这些模式决定了CPU缓存如何分配给各个核心以及缓存的数据如何被处理。以下是几种常见的Cache Mode配置及其作用：
+
+- `in:partition out:share`：内部为分区，外部为共享模式。在这种模式下，每个CPU核心拥有自己的私有L1和L2缓存，而L3缓存则是多个核心共享的。
+- `in:share out:share`：内部和外部均为共享模式。这意味着所有的CPU核心共享L1和L2缓存，而L3缓存也是共享的。
+- `in:private out:share`：内部为私有，外部为共享模式。这表示每个CPU核心都有自己独立的L1和L2缓存，而L3缓存是共享的。
+- `in:private out:private`：内部和外部均为私有模式。在这种情况下，每个CPU核心都拥有完全独立的L1、L2和部分L3缓存。
 
 ### 方法
 
@@ -185,10 +197,6 @@ BIOSTools -A DemtMode -V Disabled
 BIOSTools -D getbiosdetails -A CacheMode
 BIOSTools -A CacheMode -V "in:private out:private"
 ```
-
-
-
-
 
 ## 模版
 

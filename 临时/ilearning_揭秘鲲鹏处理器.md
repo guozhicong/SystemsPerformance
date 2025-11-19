@@ -21,8 +21,8 @@
 ### 鲲鹏920 芯片规格
 
 - 指令兼容ARMv8.2， 最高主频3.0GHz
-- L1 L2 L3 cache大小
-- 8 * DDR4 ， 每个内存条频率最高2933MB/S
+- L1 L2 L3 cache大小 (L1 一个核心64KBL1DCache还有一个64KBL1ICache \ L2 一个核心512KB \ L3 一个核心1MB )
+- 8 * DDR4 ， 每个内存条频率最高2933MB/S （1DPC场景； 2DPC场景最高支持2666MB/S）
 
 
 
@@ -37,4 +37,10 @@
 ![image-20250809183021759](../png/image-20250809183021759.png)
 
 ### 鲲鹏920芯片架构——cache模式
+
+- Share Cache : 一个进程可以使用所有的L3 。
+
+- Private Cache : 有N个L3， 每个进程只能使用其中一个L3，且L3和L3之间不通信。
+
+- Partitioned Cache: 有N个L3， 每个进程只能使用其中一个L3； 但是L3氛围一个home L3和N个Remote L3 ， L3和L3之间会通信，由home L3来维护N个Remote L3 的一致性。
 
