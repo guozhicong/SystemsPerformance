@@ -350,7 +350,7 @@ please open http://127.0.0.1:8680
 
 ### 启动部署
 
-![image-20250801161233365](/Users/guozhicong/Library/Application Support/typora-user-images/image-20250801161233365.png)
+![image-20250801161233365](../png/image-20250801161233365.png)
 
 部署成功后，保存OceanBase数据库集群信息
 

@@ -314,13 +314,13 @@ A： 修改 listen_addresses = '193.133.1.4'
 
 pg进程绑cpu：
 
-![image-20251027172540647](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251027172540647.png)
+![image-20251027172540647](../png/image-20251027172540647.png)
 
-![image-20251027172558458](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251027172558458.png)
+![image-20251027172558458](../png/image-20251027172558458.png)
 
-![image-20251027172617151](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251027172617151.png)
+![image-20251027172617151](../png/image-20251027172617151.png)
 
-![image-20251027172519605](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251027172519605.png)
+![image-20251027172519605](../png/image-20251027172519605.png)
 
 
 
@@ -330,13 +330,13 @@ TBase
 
 配置文件位置
 
-![image-20251103201156401](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251103201156401.png)
+![image-20251103201156401](../png/image-20251103201156401.png)
 
 查询配置
 
-![image-20251103201231522](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251103201231522.png)
+![image-20251103201231522](../png/image-20251103201231522.png)
 
 
 
-![image-20251103201326399](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251103201326399.png)
+![image-20251103201326399](../png/image-20251103201326399.png)
 
