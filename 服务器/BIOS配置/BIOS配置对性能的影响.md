@@ -62,6 +62,10 @@ BIOSTools -A NUMAEn -V Enabled
 #### 方法二
 参考Power Policy
 
+#### 方法三
+
+参见POC调优一本通，可以在os层实现cpu预取算法，不需要BIOS修改。
+
 ## NUMA
 ### 目的
 
