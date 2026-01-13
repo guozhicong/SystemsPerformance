@@ -198,11 +198,66 @@ flowchart TD
 
 ##  微架构瓶颈定位方法 Topdown
 
+Slot里有指令就是Non-stalled
 
+Slot里没有微指令就是Stalled
 
 <img src="../../png/image-20250323162938924.png" alt="image-20250323162938924" style="zoom:50%;" />
 
 ## Topdown瓶颈问题优化
+
+前端瓶颈是指前端的供给赶不上后端的消费，即是在rob没满的情况下前端没有将最大指令发射出来
+
+Fetch Latency Bound包含：（前端一条指令都没发射出来）
+
+	- itlb miss   -> 大页内存
+	- icache miss   ->  开预取
+	- misp_flush: 由于分支预测失败引起的占比
+	- ooo_flush: 由于rob flush引起的占比（一些中断引起的）
+	- sp_flush： 静态分支预测失败引起的占比
+
+Frontend bangwidth bound 前端有指令发射出来，但是没有达到最大的发射数
+
+- 前端在一个周内取的指令，由于循环跳转等问题，导致向后端发的指令不够后端执行
+
+Bad Speculation 
+
+- Branche Mispredicts 由于分支预测失败导致的多执行的指令的瓶颈  -> 解决方法：把最可能进入的分支放前面
+
+  - indirect_branch 间接跳转miss占总分支预测失败的比例
+
+  - push_branch call指令miss占总分支预测失败的比例
+
+  - pop_branch ret指令miss占总分支预测失败的比例
+
+  - other_branch其他类型分支占总分支预测失败的比例
+
+- Machine Clears 由于流水线清除导致多执行的指令  -> 解决方法：
+
+  - nuke_flush 由于访存序违例导致的flush占总rob flush的比例
+  - other_flush 其他（中断，自修改指令，序列化指令）
+
+Backend Bound
+
+- Memory Bound 访存瓶颈 （就load 和 store的时候有阻塞）
+  - L1 Bound -> 开大页、预取、cacheline对齐、结构体字节对齐
+  - L2 Bound -> 开大页、预取、cacheline对齐、结构体字节对齐
+  - L3 Bound  -> 开大页、预取、cacheline对齐、结构体字节对齐
+  - Memory Bound 
+  - Memory Store Bound 
+- Resource Bound： 措施：增加物理资源
+  - Rob_stall  由于RoB耗尽导致的流水线瓶颈 （RoB作用：保证指令执行顺序记录重命名映射的信息）
+  - Ptag_stall  由于重命名阶段使用的物理寄存器
+  - MapQ_stall 由于decode至rename的队列耗尽
+  - PCBuf_stall 分支重命名快照瓶颈
+- Core Bound
+  - Fdiv Bound 浮点除法导致的stall
+  - Div Bound 整型除法
+  - Fsu Bound 其余浮点指令
+  - Other Bound 其他整形指令  解决方法：循环展开
+    - 0-ports-serialize  序列化指令导致的0条指令发射
+    - 0-ports-non-serialize 0条指令发射
+    - X-ports X条指令发射
 
 1. 前端瓶颈问题：
    - iTLB miss问题可以通过内存大页解决/ JVM启动参数也可以开启内存大页
@@ -252,6 +307,14 @@ mem_l2_bound:                                    |--  0.82%
 mem_l3_dram_bound:                               |-- 11.66%
 mem_store_bound:                                 |--  1.19%
 ```
+
+### 采集后在公司平台进行可视化
+
+```shell
+./kperf --rawdata --hotfunc --topdown --cache --tlb --imix --uncore --duration 1 --interval 15 --pid 51465 > kperf.data.txt
+```
+
+
 
 ### 全量指标查看
 
