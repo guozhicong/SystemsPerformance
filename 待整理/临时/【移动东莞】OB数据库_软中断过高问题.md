@@ -14,7 +14,7 @@
 
 ## 测试场景
 
-![image-20251202142758549](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251202142758549.png)
+![image-20251202142758549](../png/image-20251202142758549.png)
 
 ## 环境配置
 
@@ -58,7 +58,7 @@ net.ipv4.ip_local_port_range = 32768    60999
 
 bond4 存在流量不均匀的情况，发的流量几乎集中在enp2s0f0
 
-![image-20251202163423965](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251202163423965.png)
+![image-20251202163423965](../png/image-20251202163423965.png)
 
 ### 2. 流量不均匀问题排查
 
@@ -68,10 +68,10 @@ vim /etc/sysconfig/network-scripts/ifcfg-bond1
 
 查询到bond组hash策略未配置，默认为layer2， POD13为xmit_hash_policy=layer3+4。后续调整bond4 hash策略为layer3+4 的场景。
 
-![image-20251202163626510](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251202163626510.png)
+![image-20251202163626510](../png/image-20251202163626510.png)
 
 具体修改如下所示：（lacp_rate=fast 因为汕头区域OB集群也配置了，所以增加了该配置）
-![image-20251202164719703](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251202164719703.png)
+![image-20251202164719703](../png/image-20251202164719703.png)
 
 修改后重启bond4
 
@@ -87,7 +87,7 @@ cat /proc/net/bonding/bond1 查看配置是否生效
 
 layer3+4 hash策略修改后，流量会均匀一段时间，但是后续又会慢慢变到不均匀的状态，从10MB的差异一直劣化到300MB，且持续波动。sysbench性能从55.3W下降到30W。流量不均匀的状态有时候只在proxy节点的发端，有时候是sysbench测试的整个流程收发端都不均匀。
 
-![image-20251202165236844](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251202165236844.png)
+![image-20251202165236844](../png/image-20251202165236844.png)
 
 #### 2.2 交换机配置查询
 
@@ -95,23 +95,23 @@ layer3+4 hash策略修改后，流量会均匀一段时间，但是后续又会�
 
 - pod1
 
-  ![image-20251202165705538](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251202165705538.png)
+  ![image-20251202165705538](../png/image-20251202165705538.png)
 
-  ![image-20251202165801094](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251202165801094.png)
+  ![image-20251202165801094](../png/image-20251202165801094.png)
 
-  ![image-20251202165824532](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251202165824532.png)
+  ![image-20251202165824532](../png/image-20251202165824532.png)
 
   bond4对应的交换机口的配置信息
 
-  ![image-20251202165857753](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251202165857753.png)
+  ![image-20251202165857753](../png/image-20251202165857753.png)
 
 - pod13
 
-  ![image-20251202165928790](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251202165928790.png)
+  ![image-20251202165928790](../png/image-20251202165928790.png)
 
   bond4对应的交换机口的配置信息
 
-  ![image-20251202165944540](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251202165944540.png)
+  ![image-20251202165944540](../png/image-20251202165944540.png)
 
 #### 2.3 其它测试排查手段
 
@@ -136,7 +136,7 @@ ip -s link show bond1 # 查看丢包情况，pod1有mcast，pod13没有
 
 **固件升级至14.32.1010，驱动升级至mlx5_core 24.10-3.2.5版本后，重启服务器。**
 
-![image-20251202202440968](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251202202440968.png)
+![image-20251202202440968](../png/image-20251202202440968.png)
 
 ​	POD1 C3K服务器mellanox网卡驱动与固件未升级前，bond4网卡流量不均匀，两张网卡流量差异在300MB内波动，当网卡流量差距达到300MB时，OB的sysbench性能从55.3W QPS下降到30W QPS，性能下降幅度为46%。升级网卡驱动和固件版本后，bond4网卡流量差异保持在30MB内波动，sysbench性能稳定在49W-56W区间，均值为53W，未出现OB数据库性能大幅下降的情况。
 
@@ -144,4 +144,4 @@ ip -s link show bond1 # 查看丢包情况，pod1有mcast，pod13没有
 
 未升级固件驱动、未配置sql索引
 
-![image-20251203092201827](/Users/guozhicong/Library/Application Support/typora-user-images/image-20251203092201827.png)
+![image-20251203092201827](../png/image-20251203092201827.png)
