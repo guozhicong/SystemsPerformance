@@ -13,9 +13,19 @@ sudo ln -s /home/software/cmake-3.16.8-Linux-x86_64/bin/cmake /usr/bin/cmake
 cmake --version
 ```
 
+
+
 ## ClickHouse编译安装
 
 ClickHouse官方提供的arm版本RPM包仅能在920新型号（920B）上安装部署，在920上无法正常使用。猜测是部分指令集在920型号机型上不支持，导致安装过程中有coredump问题。
 
 参考： https://www.hikunpeng.com/document/detail/zh/kunpengbds/ecosystemEnable/ClickHouse/kunpengclickhouse_02_0007.html
+
+
+
+## CentOS RPM 包链接无法打开
+
+http://mirror.centos.org/altarch/7/os/aarch64/Packages/openssl-libs-1.0.2k-19.el7.aarch64.rpm 无法访问
+
+已转移至 https://vault.centos.org/altarch/7/os/aarch64/Packages/
 
