@@ -29,3 +29,27 @@ http://mirror.centos.org/altarch/7/os/aarch64/Packages/openssl-libs-1.0.2k-19.el
 
 已转移至 https://vault.centos.org/altarch/7/os/aarch64/Packages/
 
+
+
+## Java环境变量配置
+
+```shel
+vim /etc/profile
+
+
+# 配置JAVA_HOME
+export JAVA_HOME=/usr/local/jdk1.8.0_391
+# 配置PATH
+export PATH=$JAVA_HOME/bin:$PATH
+
+source /etc/profile
+```
+
+
+
+## 报错 "--platform" is only supported on a Docker daemon with experimental features enabled
+
+解决方法：
+
+
+

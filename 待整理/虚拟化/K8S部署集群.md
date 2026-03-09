@@ -171,3 +171,7 @@
 
    yum install tar -y
 
+3. Error: failed to run checker: failed to get host 179.126.1.2:22 hostname, failed to create ssh session for 179.126.1.2:22: ssh: handshake failed: ssh: unable to authenticate, attempted methods [none password], no supported methods remain
+
+   vim /etc/hosts 配置文件增加所有涉及的节点的hostname配置
+
