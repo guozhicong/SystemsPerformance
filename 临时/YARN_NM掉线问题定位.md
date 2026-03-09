@@ -4,11 +4,11 @@
 
 重启NodeManager后，能正常连接ResourceManager，服务恢复正常状态。
 
-![image-20260204163208031](/Users/guozhicong/Library/Application Support/typora-user-images/image-20260204163208031.png)
+![image-20260204163208031](../png/image-20260204163208031.png)
 
 hadoop版本 2.6.0    CDH 5.16.1
 
-![image-20260205155311498](/Users/guozhicong/Library/Application Support/typora-user-images/image-20260205155311498.png)
+![image-20260205155311498](../png/image-20260205155311498.png)
 
 ## 定位
 
@@ -25,7 +25,7 @@ hadoop版本 2.6.0    CDH 5.16.1
 
    
 
-   ![image-20260204163455562](/Users/guozhicong/Library/Application Support/typora-user-images/image-20260204163455562.png)
+   ![image-20260204163455562](../png/image-20260204163455562.png)
 
    心跳超时了，大于600秒的时间限制了。所以RM把这个NM删除了
 
@@ -109,15 +109,15 @@ hadoop版本 2.6.0    CDH 5.16.1
 
 5. 第二天再次复现问题：
 
-   ![image-20260205144250475](/Users/guozhicong/Library/Application Support/typora-user-images/image-20260205144250475.png)
+   ![image-20260205144250475](../png/image-20260205144250475.png)
 
    RM节点可以连通断链的NM节点：
 
-   ![image-20260205144323897](/Users/guozhicong/Library/Application Support/typora-user-images/image-20260205144323897.png)
+   ![image-20260205144323897](../png/image-20260205144323897.png)
 
    断连的NM节点8041端口是开放的
 
-   ![image-20260205144345853](/Users/guozhicong/Library/Application Support/typora-user-images/image-20260205144345853.png)
+   ![image-20260205144345853](../png/image-20260205144345853.png)
 
    6. 继续定位
 
