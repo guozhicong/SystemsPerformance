@@ -7,7 +7,7 @@ MapReduce将计算分为两个阶段： Map和Reduce
 
 ## MapReduce核心编程思想
 
-![image-20260116112715762](/Users/guozhicong/Library/Application Support/typora-user-images/image-20260116112715762.png)
+![image-20260116112715762](../png/image-20260116112715762.png)
 
 ## MapReduce进程
 

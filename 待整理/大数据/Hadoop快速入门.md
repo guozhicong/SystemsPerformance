@@ -36,7 +36,7 @@
 
 ### Hadoop 2.X 的组成 
 
-![image-20260228171024465](/Users/guozhicong/Library/Application Support/typora-user-images/image-20260228171024465.png)
+![image-20260228171024465](../png/image-20260228171024465.png)
 
 #### MapReduce 计算
 
@@ -49,7 +49,7 @@ MapReduce将计算分为两个阶段： Map和Reduce
 
 ![image-20260107144237657](../png/image-20260107144237657.png)
 
-![image-20260205115627904](/Users/guozhicong/Library/Application Support/typora-user-images/image-20260205115627904.png)
+![image-20260205115627904](../png/image-20260205115627904.png)
 
 
 
