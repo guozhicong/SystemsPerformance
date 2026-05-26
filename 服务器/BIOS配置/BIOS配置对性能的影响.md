@@ -202,6 +202,26 @@ BIOSTools -D getbiosdetails -A CacheMode
 BIOSTools -A CacheMode -V "in:private out:private"
 ```
 
+
+
+## UFS
+
+### 目的
+
+> [!IMPORTANT]
+>
+> **UFSEn** 是 **Uncore Frequency Scaling**（**非核频率调频**）的简写，关闭它等同于将**Uncore（Uncore Frequency）锁死在最高频**，是鲲鹏 / TaiShan 服务器**极致性能调优**的核心操作之一。
+>
+> **Uncore 范围**：包含内存控制器、PCIe、环总线、CXL 等 CPU 核心外的关键子系统，其频率直接决定**内存带宽、PCIe 吞吐、IO 延迟**。
+
+### 方法
+
+#### 	方法一
+
+
+
+
+
 ## 模版
 
 ### 目的
